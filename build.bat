@@ -2,7 +2,7 @@
 
 set modname=partially_explored_map
 set modkitdir=YOUR_MODKIT_BIN_PATH
-set version=1.0
+set version=1.1
 
 echo.
 echo Creating temporary directory...

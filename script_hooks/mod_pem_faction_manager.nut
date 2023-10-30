@@ -31,7 +31,7 @@
 			foreach (settlement in settlements) {
 				if (settlement.getOwner().getID() == nearestFaction.getID() || (isSouthern && settlement.getOwner().getType() == Const.FactionType.OrientalCityState)) {
 					settlement.setDiscovered(true);
-					World.uncoverFogOfWar(settlement.getTile().Pos, 900.0);
+					World.uncoverFogOfWar(settlement.getTile().Pos, 300.0);
 				}
 			}
 		} else

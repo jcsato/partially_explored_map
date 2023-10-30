@@ -45,7 +45,7 @@ NewCampaignMenuModule.prototype.show = function() {
     row.append(defaultExplorationControl);
     this.mDefaultExplorationCheckbox = $('<input type="radio" id="cb-exploration-default" name="exploration-difficulty" checked />');
     defaultExplorationControl.append(this.mDefaultExplorationCheckbox);
-    this.mDefaultExplorationLabel = $('<label class="text-font-normal font-color-subtitle" for="cb-exploration-default">Civilization Explored</label>');
+    this.mDefaultExplorationLabel = $('<label class="text-font-normal font-color-subtitle" for="cb-exploration-default">Explored Map</label>');
     defaultExplorationControl.append(this.mDefaultExplorationLabel);
     this.mDefaultExplorationCheckbox.iCheck({
         checkboxClass: 'icheckbox_flat-orange',
@@ -62,7 +62,7 @@ NewCampaignMenuModule.prototype.show = function() {
     row.append(partialExplorationControl);
     this.mPartialExplorationCheckbox = $('<input type="radio" id="cb-exploration-partial" name="exploration-difficulty" />');
     partialExplorationControl.append(this.mPartialExplorationCheckbox);
-    this.mPartialExplorationLabel = $('<label class="text-font-normal font-color-subtitle" for="cb-exploration-partial">Faction Explored</label>');
+    this.mPartialExplorationLabel = $('<label class="text-font-normal font-color-subtitle" for="cb-exploration-partial">Partially Explored Map</label>');
     partialExplorationControl.append(this.mPartialExplorationLabel);
     this.mPartialExplorationCheckbox.iCheck({
         checkboxClass: 'icheckbox_flat-orange',
