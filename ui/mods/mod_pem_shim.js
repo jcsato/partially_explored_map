@@ -111,18 +111,26 @@ NewCampaignMenuModule.prototype.show = function() {
 
 var originalNewCampaignMenuModuleDestroyDIV = NewCampaignMenuModule.prototype.destroyDIV;
 NewCampaignMenuModule.prototype.destroyDIV = function() {
-    this.mDefaultExplorationCheckbox.remove();
-    this.mDefaultExplorationCheckbox = null;
-    this.mDefaultExplorationLabel.remove();
-    this.mDefaultExplorationLabel = null;
-    this.mPartialExplorationCheckbox.remove();
-    this.mPartialExplorationCheckbox = null;
-    this.mPartialExplorationLabel.remove();
-    this.mPartialExplorationLabel = null;
-    this.mUnexploredExplorationCheckbox.remove();
-    this.mUnexploredExplorationCheckbox = null;
-    this.mUnexploredExplorationLabel.remove();
-    this.mUnexploredExplorationLabel = null;
+    if (this.mDefaultExplorationLabel != null) {
+        this.mDefaultExplorationCheckbox.remove();
+        this.mDefaultExplorationCheckbox = null;
+        this.mDefaultExplorationLabel.remove();
+        this.mDefaultExplorationLabel = null;
+    }
+
+    if (this.mPartialExplorationLabel != null) {
+        this.mPartialExplorationCheckbox.remove();
+        this.mPartialExplorationCheckbox = null;
+        this.mPartialExplorationLabel.remove();
+        this.mPartialExplorationLabel = null;
+    }
+
+    if (this.mUnexploredExplorationLabel != null) {
+        this.mUnexploredExplorationCheckbox.remove();
+        this.mUnexploredExplorationCheckbox = null;
+        this.mUnexploredExplorationLabel.remove();
+        this.mUnexploredExplorationLabel = null;
+    }
 
     originalNewCampaignMenuModuleDestroyDIV.call(this);
 };
@@ -131,12 +139,18 @@ var originalNewCampaignMenuModuleUnbindTooltips = NewCampaignMenuModule.prototyp
 NewCampaignMenuModule.prototype.unbindTooltips = function () {
     originalNewCampaignMenuModuleUnbindTooltips.call(this);
 
-    this.mDefaultExplorationLabel.unbindTooltip();
-    this.mDefaultExplorationCheckbox.unbindTooltip();
+    if (this.mDefaultExplorationLabel != null) {
+        this.mDefaultExplorationLabel.unbindTooltip();
+        this.mDefaultExplorationCheckbox.unbindTooltip();
+    }
 
-    this.mPartialExplorationLabel.unbindTooltip();
-    this.mPartialExplorationCheckbox.unbindTooltip();
+    if (this.mPartialExplorationLabel != null) {
+        this.mPartialExplorationLabel.unbindTooltip();
+        this.mPartialExplorationCheckbox.unbindTooltip();
+    }
 
-    this.mUnexploredExplorationLabel.unbindTooltip();
-    this.mUnexploredExplorationCheckbox.unbindTooltip();
+    if (this.mUnexploredExplorationLabel != null) {
+        this.mUnexploredExplorationLabel.unbindTooltip();
+        this.mUnexploredExplorationCheckbox.unbindTooltip();
+    }
 }
