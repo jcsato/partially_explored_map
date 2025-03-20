@@ -14,24 +14,24 @@ NewCampaignMenuModule.prototype.mUnexploredExplorationCheckbox = null;
 NewCampaignMenuModule.prototype.mUnexploredExplorationLabel = null;
 NewCampaignMenuModule.prototype.mExplorationDifficulty = 0;
 
-var originalNewCampaignMenuModuleCollectSettings = NewCampaignMenuModule.prototype.collectSettings;
+var originalCollectSettingsPEM = NewCampaignMenuModule.prototype.collectSettings;
 NewCampaignMenuModule.prototype.collectSettings = function() {
 
-    var settings = originalNewCampaignMenuModuleCollectSettings.call(this);
+    var settings = originalCollectSettingsPEM.call(this);
 
-    // This is read in (in the squirrel code) in new_campaign_menu_module.onStartButtonPressed
-    settings.push(this.mExplorationDifficulty);
+    // This is read in (in squirrel) in new_campaign_menu_module
+    settings.explorationDifficultyExtra = this.mExplorationDifficulty;
 
     return settings;
 }
 
-var originalNewCampaignMenuModuleShow = NewCampaignMenuModule.prototype.show;
+var originalShowPEM = NewCampaignMenuModule.prototype.show;
 NewCampaignMenuModule.prototype.show = function() {
-    var panel = this.mThirdPanel;
+    var panel = this.mDifficultySelectionPanel;
 
     // Hack to avoid polluting UI on subsquent .show() calls
     if (panel.find("#exploration-difficulty-row").length > 0) {
-        return originalNewCampaignMenuModuleShow.call(this);
+        return originalShowPEM.call(this);
     }
 
     // Add Exploration Difficulty UI
@@ -106,10 +106,10 @@ NewCampaignMenuModule.prototype.show = function() {
     var explorationControl = panel.find('#cb-exploration').parent().parent();
     explorationControl.addClass('display-none');
 
-    originalNewCampaignMenuModuleShow.call(this);
+    originalShowPEM.call(this);
 }
 
-var originalNewCampaignMenuModuleDestroyDIV = NewCampaignMenuModule.prototype.destroyDIV;
+var originalDestroyDIVPEM = NewCampaignMenuModule.prototype.destroyDIV;
 NewCampaignMenuModule.prototype.destroyDIV = function() {
     if (this.mDefaultExplorationLabel != null) {
         this.mDefaultExplorationCheckbox.remove();
@@ -132,12 +132,12 @@ NewCampaignMenuModule.prototype.destroyDIV = function() {
         this.mUnexploredExplorationLabel = null;
     }
 
-    originalNewCampaignMenuModuleDestroyDIV.call(this);
+    originalDestroyDIVPEM.call(this);
 };
 
-var originalNewCampaignMenuModuleUnbindTooltips = NewCampaignMenuModule.prototype.unbindTooltips;
+var originalUnbindTooltipsPEM = NewCampaignMenuModule.prototype.unbindTooltips;
 NewCampaignMenuModule.prototype.unbindTooltips = function () {
-    originalNewCampaignMenuModuleUnbindTooltips.call(this);
+    originalUnbindTooltipsPEM.call(this);
 
     if (this.mDefaultExplorationLabel != null) {
         this.mDefaultExplorationLabel.unbindTooltip();
