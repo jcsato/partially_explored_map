@@ -36,9 +36,9 @@ Adds a new "Partially Explored Map" exploration difficulty to the game that reve
 
 ## Compatibility
 
-This should be fully save game compatible, i.e. you _should_ be safe to remove the mod at any time.
+This is fully save game compatible, i.e. you're safe to remove the mod at any time.
 
-There's a decent chance for incompatibilities with other mods that modify the new campaign menus, as some things (e.g. campaign settings) aren't structured in a way that readily allows composing different hooks. Please reach out if you encounter any such issues.
+There's a decent chance for incompatibilities with other mods that modify the new campaign menus. Please reach out if you encounter any issues.
 
 ## Building
 
